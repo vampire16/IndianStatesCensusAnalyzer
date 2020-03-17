@@ -5,8 +5,6 @@ import com.bridgeLabz.service.StateCensusAnalyzer;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.IOException;
-
 public class TestCases {
 
     @Test
@@ -38,4 +36,17 @@ public class TestCases {
             Assert.assertEquals(CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND,e.exceptionType);
         }
     }
+
+    @Test
+    public void givenFile_WhenDelimiterIncorrect_ReturnCustomiseException(){
+        final String CSV_FILE_PATH = "/home/admin2/IndianStatesCensusAnalyzer/src/test/resources/StateCensusData1.csv";
+        StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH);
+        try {
+            stateCensusAnalyzer.loadRecords();
+        } catch (CensusAnalyzerException e) {
+            Assert.assertEquals(CensusAnalyzerException.ExceptionType.DELIMITER_INCORRECT,e.exceptionType);
+        }
+    }
+
+
 }
