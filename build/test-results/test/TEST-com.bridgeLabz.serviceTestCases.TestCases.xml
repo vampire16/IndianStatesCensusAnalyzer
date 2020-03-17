@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgeLabz.serviceTestCases.TestCases" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-03-17T07:18:50" hostname="admin2-H110M-S2" time="0.111">
+<testsuite name="com.bridgeLabz.serviceTestCases.TestCases" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-03-17T08:31:52" hostname="admin2-H110M-S2" time="0.105">
   <properties/>
-  <testcase name="givenNumberOfRecords_WhenMatched_ReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.099"/>
-  <testcase name="givenFileName_WhenWrong_ReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.011"/>
+  <testcase name="givenNumberOfRecords_WhenMatched_ReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.103"/>
+  <testcase name="givenFileName_WhenWrong_ReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.0"/>
+  <testcase name="givenFileType_WhenWrong_ReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.0"/>
   <system-out><![CDATA[Name : Uttar Pradesh
 Email : 199812341
 Phone : 240928
