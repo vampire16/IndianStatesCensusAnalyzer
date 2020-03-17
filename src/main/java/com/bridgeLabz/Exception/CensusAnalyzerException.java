@@ -1,8 +1,9 @@
 package com.bridgeLabz.Exception;
 
-public class CensusAnalyzerException extends Throwable {
+public class CensusAnalyzerException extends Exception {
     public enum ExceptionType{
-        FILE_NOT_FOUND
+        FILE_NOT_FOUND,
+        DELIMITER_INCORRECT
     }
 
     public ExceptionType exceptionType;
