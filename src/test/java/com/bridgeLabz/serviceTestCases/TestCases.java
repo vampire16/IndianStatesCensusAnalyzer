@@ -27,4 +27,15 @@ public class TestCases {
             Assert.assertEquals(CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND,e.exceptionType);
         }
     }
+
+    @Test
+    public void givenFileType_WhenWrong_ReturnCustomiseException(){
+        final String CSV_FILE_PATH = "/home/admin2/IndianStatesCensusAnalyzer/src/test/resources/StateCensusData.txt";
+        StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH);
+        try {
+            stateCensusAnalyzer.loadRecords();
+        } catch (CensusAnalyzerException e) {
+            Assert.assertEquals(CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND,e.exceptionType);
+        }
+    }
 }
