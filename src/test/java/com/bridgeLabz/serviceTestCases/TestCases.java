@@ -48,5 +48,15 @@ public class TestCases {
         }
     }
 
+    @Test
+    public void givenFile_WhenHeaderIncorrect_ReturnCustomiseException(){
+        final String CSV_FILE_PATH = "/home/admin2/IndianStatesCensusAnalyzer/src/test/resources/StateCensusData2.csv";
+        StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH);
+        try {
+            stateCensusAnalyzer.loadRecords();
+        } catch (CensusAnalyzerException e) {
+            Assert.assertEquals(CensusAnalyzerException.ExceptionType.DELIMITER_INCORRECT,e.exceptionType);
+        }
+    }
 
 }
