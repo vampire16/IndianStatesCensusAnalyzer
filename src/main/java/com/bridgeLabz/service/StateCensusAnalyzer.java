@@ -1,5 +1,6 @@
 package com.bridgeLabz.service;
 
+import com.bridgeLabz.Exception.CensusAnalyzerException;
 import com.bridgeLabz.model.CSVStateCensus;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -10,10 +11,14 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 
 public class StateCensusAnalyzer {
-        private static final String CSV_FILE_PATH = "/home/admin2/IndianStatesCensusAnalyzer/src/test/resources/StateCensusData.csv";
+        private static String CSV_FILE_PATH;
         int count=0;
 
-        public int loadRecords() throws IOException {
+    public StateCensusAnalyzer(String path) {
+        CSV_FILE_PATH = path;
+    }
+
+    public int loadRecords() throws CensusAnalyzerException {
             try (
                     Reader reader = Files.newBufferedReader(Paths.get(CSV_FILE_PATH));
             ) {
@@ -33,6 +38,9 @@ public class StateCensusAnalyzer {
                     System.out.println("==========================");
                     count++;
                 }
+
+            } catch (IOException e) {
+                throw new CensusAnalyzerException(CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND);
             }
             return count;
         }
