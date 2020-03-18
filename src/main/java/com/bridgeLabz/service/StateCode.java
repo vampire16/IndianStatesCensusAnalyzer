@@ -1,7 +1,6 @@
 package com.bridgeLabz.service;
 
 import com.bridgeLabz.Exception.CensusAnalyzerException;
-import com.bridgeLabz.model.CSVStateCensus;
 import com.bridgeLabz.model.StateCodePojo;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -41,9 +40,11 @@ public class StateCode {
                 System.out.println("==========================");
                 count++;
             }
-        }catch (NoSuchFileException e) {
+        } catch (NoSuchFileException e) {
             throw new CensusAnalyzerException(e.getMessage(), CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND);
-        }catch (IOException e) {
+        } catch (RuntimeException e) {
+            throw new CensusAnalyzerException(e.getMessage(), CensusAnalyzerException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT);
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return count;
