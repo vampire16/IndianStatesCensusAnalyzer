@@ -63,12 +63,22 @@ public class TestCases {
     }
 
     @Test
-    public void givenNumberOfRecordsOfStateCode_WhenMatched_ReturnTrue() throws IOException {
+    public void givenNumberOfRecordsOfStateCode_WhenMatched_ReturnTrue() throws CensusAnalyzerException {
         final String CSV_FILE_PATH = "/home/admin2/IndianStatesCensusAnalyzer/src/test/resources/StateCode.csv";
         StateCode stateCode = new StateCode(CSV_FILE_PATH);
         int numberOfRecords = stateCode.loadStateCodeRecords();
         Assert.assertEquals(37, numberOfRecords);
     }
 
+    @Test
+    public void givenFileNameOfStateCode_WhenWrong_ReturnCustomiseException() {
+        final String CSV_FILE_PATH = "/home/admin2/IndianStatesCensusAnalyzer/src/test/resources/stateCode.csv";
+        StateCode stateCode = new StateCode(CSV_FILE_PATH);
+        try {
+            stateCode.loadStateCodeRecords();
+        } catch (CensusAnalyzerException e) {
+            Assert.assertEquals(CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        }
+    }
 
 }
