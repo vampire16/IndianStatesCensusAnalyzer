@@ -81,4 +81,16 @@ public class TestCases {
         }
     }
 
+    @Test
+    public void givenFileTypeOfStateCode_WhenWrong_ReturnCustomiseException() {
+        final String CSV_FILE_PATH = "/home/admin2/IndianStatesCensusAnalyzer/src/test/resources/StateCode.txt";
+        StateCode stateCode = new StateCode(CSV_FILE_PATH);
+        try {
+            stateCode.loadStateCodeRecords();
+        } catch (CensusAnalyzerException e) {
+            Assert.assertEquals(CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        }
+    }
+
+
 }
