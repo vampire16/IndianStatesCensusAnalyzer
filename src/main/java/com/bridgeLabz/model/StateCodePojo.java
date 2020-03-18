@@ -3,16 +3,16 @@ package com.bridgeLabz.model;
 import com.opencsv.bean.CsvBindByName;
 
 public class StateCodePojo {
-    @CsvBindByName(column = "SrNo")
+    @CsvBindByName(column = "SrNo", required = true)
     private String srno;
 
-    @CsvBindByName(column = "StateName")
+    @CsvBindByName(column = "StateName", required = true)
     private String stateName;
 
-    @CsvBindByName(column = "TIN")
+    @CsvBindByName(column = "TIN", required = true)
     private String tin;
 
-    @CsvBindByName(column = "StateCode")
+    @CsvBindByName(column = "StateCode", required = true)
     private String stateCode;
 
     public StateCodePojo() {
