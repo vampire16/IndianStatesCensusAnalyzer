@@ -9,6 +9,7 @@ import com.opencsv.bean.CsvToBeanBuilder;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.Iterator;
 
@@ -20,7 +21,7 @@ public class StateCode {
         CSV_FILE_PATH = path;
     }
 
-    public int loadStateCodeRecords() throws IOException {
+    public int loadStateCodeRecords() throws CensusAnalyzerException {
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(CSV_FILE_PATH))
         ) {
@@ -34,12 +35,16 @@ public class StateCode {
             while (userIterator.hasNext()) {
                 StateCodePojo stateCodePojo = userIterator.next();
                 System.out.println("SrNo : " + stateCodePojo.getSrno());
-                System.out.println("State : " + stateCodePojo.getState());
-                System.out.println("Name : " + stateCodePojo.getName());
+                System.out.println("StateName : " + stateCodePojo.getStateName());
                 System.out.println("TIN : " + stateCodePojo.getTin());
+                System.out.println("StateCode : " + stateCodePojo.getStateCode());
                 System.out.println("==========================");
                 count++;
             }
+        }catch (NoSuchFileException e) {
+            throw new CensusAnalyzerException(e.getMessage(), CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND);
+        }catch (IOException e) {
+            e.printStackTrace();
         }
         return count;
     }
