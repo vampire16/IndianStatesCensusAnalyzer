@@ -2,8 +2,11 @@ package com.bridgeLabz.serviceTestCases;
 
 import com.bridgeLabz.Exception.CensusAnalyzerException;
 import com.bridgeLabz.service.StateCensusAnalyzer;
+import com.bridgeLabz.service.StateCode;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.io.IOException;
 
 public class TestCases {
 
@@ -58,5 +61,14 @@ public class TestCases {
             Assert.assertEquals(CensusAnalyzerException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT, e.exceptionType);
         }
     }
+
+    @Test
+    public void givenNumberOfRecordsOfStateCode_WhenMatched_ReturnTrue() throws IOException {
+        final String CSV_FILE_PATH = "/home/admin2/IndianStatesCensusAnalyzer/src/test/resources/StateCode.csv";
+        StateCode stateCode = new StateCode(CSV_FILE_PATH);
+        int numberOfRecords = stateCode.loadStateCodeRecords();
+        Assert.assertEquals(37, numberOfRecords);
+    }
+
 
 }
