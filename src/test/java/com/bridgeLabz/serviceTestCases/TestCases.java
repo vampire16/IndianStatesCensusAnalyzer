@@ -6,8 +6,6 @@ import com.bridgeLabz.service.StateCode;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.IOException;
-
 public class TestCases {
 
     @Test
@@ -103,5 +101,15 @@ public class TestCases {
         }
     }
 
+    @Test
+    public void givenFileOfStateCode_WhenHeadersIncorrect_ShouldReturnCustomiseException() {
+        final String CSV_FILE_PATH = "/home/admin2/IndianStatesCensusAnalyzer/src/test/resources/StateCode2.csv";
+        StateCode stateCode = new StateCode(CSV_FILE_PATH);
+        try {
+            stateCode.loadStateCodeRecords();
+        } catch (CensusAnalyzerException e) {
+            Assert.assertEquals(CensusAnalyzerException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT, e.exceptionType);
+        }
+    }
 
 }
