@@ -1,6 +1,6 @@
 package com.bridgeLabz.serviceTestCases;
 
-import com.bridgeLabz.Exception.CensusAnalyzerException;
+import com.bridgeLabz.Exception.CSVBuilderException;
 import com.bridgeLabz.model.CSVStateCensus;
 import com.bridgeLabz.model.StateCodePojo;
 import com.bridgeLabz.service.StateCensusAnalyzer;
@@ -10,7 +10,7 @@ import org.junit.Test;
 public class TestCases {
 
     @Test
-    public void givenNumberOfRecords_WhenMatched_ShouldReturnTrue() throws CensusAnalyzerException {
+    public void givenNumberOfRecords_WhenMatched_ShouldReturnTrue() throws CSVBuilderException {
         final String CSV_FILE_PATH = "src/test/resources/StateCensusData.csv";
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH, CSVStateCensus.class);
         int numberOfRecords = stateCensusAnalyzer.loadRecords();
@@ -23,8 +23,8 @@ public class TestCases {
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH, CSVStateCensus.class);
         try {
             stateCensusAnalyzer.loadRecords();
-        } catch (CensusAnalyzerException e) {
-            Assert.assertEquals(CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
         }
     }
 
@@ -34,8 +34,8 @@ public class TestCases {
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH, CSVStateCensus.class);
         try {
             stateCensusAnalyzer.loadRecords();
-        } catch (CensusAnalyzerException e) {
-            Assert.assertEquals(CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
         }
     }
 
@@ -45,8 +45,8 @@ public class TestCases {
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH, CSVStateCensus.class);
         try {
             stateCensusAnalyzer.loadRecords();
-        } catch (CensusAnalyzerException e) {
-            Assert.assertEquals(CensusAnalyzerException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT, e.exceptionType);
         }
     }
 
@@ -56,13 +56,13 @@ public class TestCases {
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH, CSVStateCensus.class);
         try {
             stateCensusAnalyzer.loadRecords();
-        } catch (CensusAnalyzerException e) {
-            Assert.assertEquals(CensusAnalyzerException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT, e.exceptionType);
         }
     }
 
     @Test
-    public void givenNumberOfRecordsOfStateCode_WhenMatched_ShouldReturnTrue() throws CensusAnalyzerException {
+    public void givenNumberOfRecordsOfStateCode_WhenMatched_ShouldReturnTrue() throws CSVBuilderException {
         final String CSV_FILE_PATH = "src/test/resources/StateCode.csv";
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH, StateCodePojo.class);
         int numberOfRecords = stateCensusAnalyzer.loadRecords();
@@ -75,8 +75,8 @@ public class TestCases {
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH, StateCodePojo.class);
         try {
             stateCensusAnalyzer.loadRecords();
-        } catch (CensusAnalyzerException e) {
-            Assert.assertEquals(CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
         }
     }
 
@@ -86,8 +86,8 @@ public class TestCases {
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH, StateCodePojo.class);
         try {
             stateCensusAnalyzer.loadRecords();
-        } catch (CensusAnalyzerException e) {
-            Assert.assertEquals(CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.FILE_NOT_FOUND, e.exceptionType);
         }
     }
 
@@ -97,8 +97,8 @@ public class TestCases {
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH, StateCodePojo.class);
         try {
             stateCensusAnalyzer.loadRecords();
-        } catch (CensusAnalyzerException e) {
-            Assert.assertEquals(CensusAnalyzerException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT, e.exceptionType);
         }
     }
 
@@ -108,8 +108,8 @@ public class TestCases {
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH, StateCodePojo.class);
         try {
             stateCensusAnalyzer.loadRecords();
-        } catch (CensusAnalyzerException e) {
-            Assert.assertEquals(CensusAnalyzerException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT, e.exceptionType);
+        } catch (CSVBuilderException e) {
+            Assert.assertEquals(CSVBuilderException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT, e.exceptionType);
         }
     }
 }
