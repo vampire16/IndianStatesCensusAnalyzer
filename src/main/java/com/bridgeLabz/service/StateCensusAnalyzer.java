@@ -1,6 +1,6 @@
 package com.bridgeLabz.service;
 
-import com.bridgeLabz.Exception.CensusAnalyzerException;
+import com.bridgeLabz.Exception.CSVBuilderException;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -22,7 +22,7 @@ public class StateCensusAnalyzer <E>{
     }
 
 //    METHOD TO LOAD RECORDS OF CSV FILE
-    public int loadRecords() throws CensusAnalyzerException {
+    public int loadRecords() throws CSVBuilderException {
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(CSV_FILE_PATH))
         ) {
@@ -33,11 +33,11 @@ public class StateCensusAnalyzer <E>{
                 count++;
             }
         } catch (NoSuchFileException e) {
-            throw new CensusAnalyzerException(e.getMessage(),
-                    CensusAnalyzerException.ExceptionType.FILE_NOT_FOUND);
+            throw new CSVBuilderException(e.getMessage(),
+                    CSVBuilderException.ExceptionType.FILE_NOT_FOUND);
         } catch (RuntimeException e) {
-            throw new CensusAnalyzerException(e.getMessage(),
-                    CensusAnalyzerException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT);
+            throw new CSVBuilderException(e.getMessage(),
+                    CSVBuilderException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT);
         } catch (IOException e) {
             e.printStackTrace();
         }
