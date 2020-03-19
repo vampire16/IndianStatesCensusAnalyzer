@@ -1,8 +1,6 @@
 package com.bridgeLabz.service;
 
 import com.bridgeLabz.Exception.CensusAnalyzerException;
-import com.opencsv.bean.CsvToBean;
-import com.opencsv.bean.CsvToBeanBuilder;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -24,15 +22,11 @@ public class StateCensusAnalyzer <E>{
     }
 
 //    METHOD TO LOAD RECORDS OF CSV FILE
-    public <E> int loadRecords() throws CensusAnalyzerException {
+    public int loadRecords() throws CensusAnalyzerException {
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(CSV_FILE_PATH))
         ) {
-            CsvToBean<E> csvToBean = new CsvToBeanBuilder(reader)
-                    .withType(csvClass)
-                    .withIgnoreLeadingWhiteSpace(true)
-                    .build();
-            Iterator<E> csvUserIterator = csvToBean.iterator();
+            Iterator csvUserIterator = new OpenCSVBuilder().getIterator(reader, csvClass);
             while (csvUserIterator.hasNext()) {
                 csvUserIterator.next();
                 count++;
