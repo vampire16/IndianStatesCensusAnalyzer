@@ -7,7 +7,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
-import java.util.Iterator;
+import java.util.List;
 
 public class StateCensusAnalyzer <E>{
 
@@ -27,11 +27,8 @@ public class StateCensusAnalyzer <E>{
                 Reader reader = Files.newBufferedReader(Paths.get(CSV_FILE_PATH))
         ) {
             OpenCSVBuilder csvBuilder = CSVBuilderFactory.createCsvBuilder();
-            Iterator csvUserIterator = csvBuilder.getIterator(reader, csvClass);
-            while (csvUserIterator.hasNext()) {
-                csvUserIterator.next();
-                count++;
-            }
+            List<E> csvUserList = csvBuilder.getList(reader, csvClass);
+            return csvUserList.size();
         } catch (NoSuchFileException e) {
             throw new CSVBuilderException(e.getMessage(),
                     CSVBuilderException.ExceptionType.FILE_NOT_FOUND);
@@ -41,7 +38,7 @@ public class StateCensusAnalyzer <E>{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return count;
+        return 0;
     }
 }
 
