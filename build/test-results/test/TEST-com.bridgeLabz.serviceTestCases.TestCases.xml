@@ -1,16 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgeLabz.serviceTestCases.TestCases" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-03-19T10:31:08" hostname="DESKTOP-7UGSU5P" time="0.321">
+<testsuite name="com.bridgeLabz.serviceTestCases.TestCases" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-03-19T11:25:02" hostname="DESKTOP-7UGSU5P" time="0.324">
   <properties/>
-  <testcase name="givenFileType_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.007"/>
-  <testcase name="givenFileNameOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.221"/>
-  <testcase name="givenNumberOfRecords_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.013"/>
-  <testcase name="givenFileTypeOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.001"/>
-  <testcase name="givenFile_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.019"/>
-  <testcase name="givenFileName_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.008"/>
-  <testcase name="givenFile_WhenHeaderIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.016"/>
-  <testcase name="givenNumberOfRecordsOfStateCode_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.01"/>
-  <testcase name="givenFileOfStateCode_WhenHeadersIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.012"/>
-  <testcase name="givenFileOfStateCode_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.008"/>
+  <testcase name="givenFileType_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.008"/>
+  <testcase name="givenFileNameOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.199"/>
+  <testcase name="givenNumberOfRecords_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.016"/>
+  <testcase name="givenFileTypeOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.0"/>
+  <testcase name="givenFile_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.022"/>
+  <testcase name="givenFileName_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.022"/>
+  <testcase name="givenFile_WhenHeaderIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.011"/>
+  <testcase name="givenNumberOfRecordsOfStateCode_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.016"/>
+  <testcase name="givenFileOfStateCode_WhenHeadersIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.006"/>
+  <testcase name="givenFileOfStateCode_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.019"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[Exception in thread "pool-3-thread-3" java.lang.RuntimeException: com.opencsv.exceptions.CsvRequiredFieldEmptyException: Number of data fields does not match number of headers.
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:99)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.opencsv.exceptions.CsvRequiredFieldEmptyException: Number of data fields does not match number of headers.
+	at com.opencsv.bean.HeaderNameBaseMappingStrategy.verifyLineLength(HeaderNameBaseMappingStrategy.java:90)
+	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:325)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
+	... 3 more
+Exception in thread "pool-3-thread-1" java.lang.RuntimeException: com.opencsv.exceptions.CsvRequiredFieldEmptyException: Number of data fields does not match number of headers.
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:99)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.opencsv.exceptions.CsvRequiredFieldEmptyException: Number of data fields does not match number of headers.
+	at com.opencsv.bean.HeaderNameBaseMappingStrategy.verifyLineLength(HeaderNameBaseMappingStrategy.java:90)
+	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:325)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
+	... 3 more
+Exception in thread "pool-6-thread-1" java.lang.RuntimeException: com.opencsv.exceptions.CsvRequiredFieldEmptyException: Number of data fields does not match number of headers.
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:99)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.opencsv.exceptions.CsvRequiredFieldEmptyException: Number of data fields does not match number of headers.
+	at com.opencsv.bean.HeaderNameBaseMappingStrategy.verifyLineLength(HeaderNameBaseMappingStrategy.java:90)
+	at com.opencsv.bean.AbstractMappingStrategy.populateNewBean(AbstractMappingStrategy.java:325)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.processLine(ProcessCsvLine.java:128)
+	at com.opencsv.bean.concurrent.ProcessCsvLine.run(ProcessCsvLine.java:83)
+	... 3 more
+]]></system-err>
 </testsuite>
