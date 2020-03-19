@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgeLabz.serviceTestCases.TestCases" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-03-19T09:19:12" hostname="DESKTOP-7UGSU5P" time="0.294">
+<testsuite name="com.bridgeLabz.serviceTestCases.TestCases" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-03-19T10:01:27" hostname="DESKTOP-7UGSU5P" time="0.621">
   <properties/>
-  <testcase name="givenFileType_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.005"/>
-  <testcase name="givenFileNameOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.194"/>
-  <testcase name="givenNumberOfRecords_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.015"/>
-  <testcase name="givenFileTypeOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.0"/>
-  <testcase name="givenFile_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.02"/>
-  <testcase name="givenFileName_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.013"/>
-  <testcase name="givenFile_WhenHeaderIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.012"/>
-  <testcase name="givenNumberOfRecordsOfStateCode_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.009"/>
-  <testcase name="givenFileOfStateCode_WhenHeadersIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.016"/>
-  <testcase name="givenFileOfStateCode_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.006"/>
+  <testcase name="givenFileType_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.007"/>
+  <testcase name="givenFileNameOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.461"/>
+  <testcase name="givenNumberOfRecords_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.012"/>
+  <testcase name="givenFileTypeOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.001"/>
+  <testcase name="givenFile_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.037"/>
+  <testcase name="givenFileName_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.011"/>
+  <testcase name="givenFile_WhenHeaderIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.018"/>
+  <testcase name="givenNumberOfRecordsOfStateCode_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.016"/>
+  <testcase name="givenFileOfStateCode_WhenHeadersIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.045"/>
+  <testcase name="givenFileOfStateCode_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.01"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
