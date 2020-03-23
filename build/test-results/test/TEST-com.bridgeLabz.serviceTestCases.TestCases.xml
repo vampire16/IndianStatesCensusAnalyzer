@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgeLabz.serviceTestCases.TestCases" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-23T01:24:27" hostname="DESKTOP-7UGSU5P" time="0.308">
+<testsuite name="com.bridgeLabz.serviceTestCases.TestCases" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-23T02:15:18" hostname="DESKTOP-7UGSU5P" time="0.293">
   <properties/>
-  <testcase name="givenCensusData_WhenSorted_ShouldReturnSortedList" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.308"/>
+  <testcase name="givenStateCodeData_WhenSorted_ShouldReturnSortedList" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.293"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
