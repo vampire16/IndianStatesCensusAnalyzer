@@ -123,4 +123,14 @@ public class TestCases {
         CSVStateCensus[] censusCSV = new Gson().fromJson(SortedData, CSVStateCensus[].class);
         Assert.assertEquals("Andhra Pradesh", censusCSV[0].getState());
     }
+
+    @Test
+    public void givenStateCodeData_WhenSorted_ShouldReturnSortedList() throws CSVBuilderException {
+        final String CSV_FILE_PATH = "src/test/resources/StateCode.csv";
+        StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer(CSV_FILE_PATH, StateCodePojo.class);
+        stateCensusAnalyzer.loadRecords();
+        String SortedData = stateCensusAnalyzer.getSortedStateCodeData();
+        StateCodePojo[] StateCodes = new Gson().fromJson(SortedData, StateCodePojo[].class);
+        Assert.assertEquals("AD", StateCodes[0].getStateCode());
+    }
 }
