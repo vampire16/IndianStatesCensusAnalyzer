@@ -2,6 +2,7 @@ package com.bridgeLabz.service;
 
 import com.bridgeLabz.Exception.CSVBuilderException;
 import com.bridgeLabz.model.CSVStateCensus;
+import com.bridgeLabz.model.StateCodePojo;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -49,6 +50,13 @@ public class StateCensusAnalyzer <E>{
         this.sort((Comparator<E>) CSVComparator);
         String SortedCSVJson = new Gson().toJson(csvUserList);
         return SortedCSVJson;
+    }
+
+    public String getSortedStateCodeData(){
+        Comparator<StateCodePojo> CodeComparator = Comparator.comparing(code -> code.stateCode);
+        this.sort((Comparator<E>) CodeComparator);
+        String SortedCodeJson = new Gson().toJson(csvUserList);
+        return SortedCodeJson;
     }
 
     private void sort(Comparator<E> csvComparator) {
