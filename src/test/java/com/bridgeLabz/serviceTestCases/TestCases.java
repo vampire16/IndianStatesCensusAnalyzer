@@ -141,4 +141,13 @@ public class TestCases {
         StateCensusPojo[] stateCensusPojo = new Gson().fromJson(sortedData, StateCensusPojo[].class);
         Assert.assertEquals(1102, stateCensusPojo[0].density);
     }
+
+    @Test
+    public void givenStateCensusData_WhenAreaSorted_ShouldReturnSortedResult() throws CSVBuilderException {
+        final String CSV_FILE_PATH = "src/test/resources/StateCensusData.csv";
+        stateCensusAnalyzer.loadCensusRecords(CSV_FILE_PATH);
+        String sortedData = stateCensusAnalyzer.getSortedCensusDataAreaWise();
+        StateCensusPojo[] stateCensusPojo = new Gson().fromJson(sortedData, StateCensusPojo[].class);
+        Assert.assertEquals(342239, stateCensusPojo[0].area);
+    }
 }
