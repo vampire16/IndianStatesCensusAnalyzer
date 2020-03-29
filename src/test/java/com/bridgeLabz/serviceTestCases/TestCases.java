@@ -72,7 +72,7 @@ public class TestCases {
 
     @Test
     public void givenFileNameOfStateCode_WhenWrong_ShouldReturnCustomiseException() {
-        final String CSV_FILE_PATH = "src/test/resources/stateCode.csv";
+        final String CSV_FILE_PATH = "src/test/resources/tateCode.csv";
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer();
         try {
             stateCensusAnalyzer.loadStateCodeRecords(CSV_FILE_PATH);
