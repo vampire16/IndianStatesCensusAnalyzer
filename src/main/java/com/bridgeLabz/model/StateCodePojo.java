@@ -6,17 +6,17 @@ public class StateCodePojo {
     @CsvBindByName(column = "StateCode", required = true)
     public String stateCode;
     @CsvBindByName(column = "SrNo", required = true)
-    private String srno;
+    public String srNo;
     @CsvBindByName(column = "StateName", required = true)
-    private String stateName;
+    public String stateName;
     @CsvBindByName(column = "TIN", required = true)
-    private String tin;
+    public String tin;
 
     public StateCodePojo() {
     }
 
-    public StateCodePojo(String srno, String stateName, String tin, String stateCode) {
-        this.srno = srno;
+    public StateCodePojo(String srNo, String stateName, String tin, String stateCode) {
+        this.srNo = srNo;
         this.stateName = stateName;
         this.tin = tin;
         this.stateCode = stateCode;
