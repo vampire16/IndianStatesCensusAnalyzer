@@ -2,7 +2,7 @@ package com.bridgeLabz.model;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class CSVStateCensus {
+public class StateCensusPojo {
 
     @CsvBindByName(column = "State", required = true)
     public String state;
@@ -16,10 +16,13 @@ public class CSVStateCensus {
     @CsvBindByName(column = "DensityPerSqKm", required = true)
     public int density;
 
-    public CSVStateCensus() {
+    public StateCensusPojo(StateCensusPojo next) {
     }
 
-    public CSVStateCensus(String state, int population, int area, int density) {
+    public StateCensusPojo() {
+    }
+
+    public StateCensusPojo(String state, int population, int area, int density) {
         this.state = state;
         this.population = population;
         this.area = area;
