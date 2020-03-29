@@ -99,6 +99,14 @@ public class StateCensusAnalyzer {
         return sortedPopulationJson;
     }
 
+    public String getSortedCensusDataDensityWise(){
+        Comparator<CensusDAO> densityComparator = Comparator.comparing(census -> census.density);
+        this.sort(densityComparator);
+        Collections.reverse(stateCensusList);
+        String sortedDensityJson = new Gson().toJson(stateCensusList);
+        return sortedDensityJson;
+    }
+
     private <E> void sort(Comparator<CensusDAO> csvComparator) {
         for (int i = 0; i < stateCensusList.size() - 1; i++) {
             for (int j = 0; j < stateCensusList.size() - i - 1; j++) {
