@@ -20,7 +20,7 @@ public class TestCases {
 
     @Test
     public void givenFileName_WhenWrong_ShouldReturnCustomiseException() {
-        final String CSV_FILE_PATH = "src/test/resources/stateCensusData.csv";
+        final String CSV_FILE_PATH = "src/test/resources/CensusData.csv";
         StateCensusAnalyzer stateCensusAnalyzer = new StateCensusAnalyzer();
         try {
             stateCensusAnalyzer.loadCensusRecords(CSV_FILE_PATH);
