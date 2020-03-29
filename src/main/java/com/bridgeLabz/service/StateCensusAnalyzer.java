@@ -107,6 +107,14 @@ public class StateCensusAnalyzer {
         return sortedDensityJson;
     }
 
+    public String getSortedCensusDataAreaWise() {
+        Comparator<CensusDAO> areaComparator = Comparator.comparing(census -> census.area);
+        this.sort(areaComparator);
+        Collections.reverse(stateCensusList);
+        String sortedAreaJson = new Gson().toJson(stateCensusList);
+        return sortedAreaJson;
+    }
+
     private <E> void sort(Comparator<CensusDAO> csvComparator) {
         for (int i = 0; i < stateCensusList.size() - 1; i++) {
             for (int j = 0; j < stateCensusList.size() - i - 1; j++) {
