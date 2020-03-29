@@ -132,4 +132,13 @@ public class TestCases {
         StateCensusPojo[] stateCensusPojo = new Gson().fromJson(sortedData, StateCensusPojo[].class);
         Assert.assertEquals(199812341, stateCensusPojo[0].population);
     }
+
+    @Test
+    public void givenStateCensusData_WhenDensitySorted_ShouldReturnSortedResult() throws CSVBuilderException {
+        final String CSV_FILE_PATH = "src/test/resources/StateCensusData.csv";
+        stateCensusAnalyzer.loadCensusRecords(CSV_FILE_PATH);
+        String sortedData = stateCensusAnalyzer.getSortedCensusDataDensityWise();
+        StateCensusPojo[] stateCensusPojo = new Gson().fromJson(sortedData, StateCensusPojo[].class);
+        Assert.assertEquals(1102, stateCensusPojo[0].density);
+    }
 }
