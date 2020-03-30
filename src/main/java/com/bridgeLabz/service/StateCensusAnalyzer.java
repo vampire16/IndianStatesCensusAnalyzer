@@ -1,6 +1,7 @@
 package com.bridgeLabz.service;
 
 import com.bridgeLabz.Exception.CSVBuilderException;
+import com.bridgeLabz.model.CSVUSCensus;
 import com.bridgeLabz.model.StateCensusPojo;
 import com.bridgeLabz.model.StateCodePojo;
 import com.google.gson.Gson;
@@ -12,6 +13,7 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 public class StateCensusAnalyzer {
 
@@ -31,11 +33,11 @@ public class StateCensusAnalyzer {
         ) {
             OpenCSVBuilder csvBuilder = CSVBuilderFactory.createCsvBuilder();
             Iterator<StateCensusPojo> censusIterator = csvBuilder.getIterator(reader, StateCensusPojo.class);
-            while (censusIterator.hasNext()) {
-                CensusDAO censusDAO = new CensusDAO(censusIterator.next());
-                this.stateCensusMap.put(censusDAO.state, censusDAO);
-                stateCensusList = stateCensusMap.values().stream().collect(Collectors.toList());
-            }
+            Iterable<StateCensusPojo> censusIterable = () -> censusIterator;
+            StreamSupport.stream(censusIterable.spliterator(), false)
+                    .forEach(stateCensusPojo -> stateCensusMap.put(stateCensusPojo.state,
+                            new CensusDAO(stateCensusPojo)));
+            stateCensusList = stateCensusMap.values().stream().collect(Collectors.toList());
             int numberOfRecords = stateCensusMap.size();
             return numberOfRecords;
         } catch (NoSuchFileException e) {
@@ -48,7 +50,6 @@ public class StateCensusAnalyzer {
             e.printStackTrace();
         }
         return 0;
-
     }
 
     public int loadStateCodeRecords(String path) throws CSVBuilderException {
@@ -57,11 +58,11 @@ public class StateCensusAnalyzer {
         ) {
             OpenCSVBuilder csvBuilder = CSVBuilderFactory.createCsvBuilder();
             Iterator<StateCodePojo> codeIterator = csvBuilder.getIterator(reader, StateCodePojo.class);
-            while (codeIterator.hasNext()) {
-                CensusDAO censusDAO = new CensusDAO (codeIterator.next());
-                this.stateCensusMap.put(censusDAO.stateCode, censusDAO);
-                stateCensusList = stateCensusMap.values().stream().collect(Collectors.toList());
-            }
+            Iterable<StateCodePojo> codeIterable = () -> codeIterator;
+            StreamSupport.stream(codeIterable.spliterator(), false)
+                    .forEach(stateCodePojo -> stateCensusMap.put(stateCodePojo.stateCode,
+                            new CensusDAO(stateCodePojo)));
+            stateCensusList = stateCensusMap.values().stream().collect(Collectors.toList());
             int numberOfRecords = stateCensusMap.size();
             return numberOfRecords;
         } catch (NoSuchFileException e) {
@@ -76,6 +77,26 @@ public class StateCensusAnalyzer {
         return 0;
     }
 
+    public int loadUSCensusRecords(String path) throws CSVBuilderException {
+        try (
+                Reader reader = Files.newBufferedReader(Paths.get(path))
+        ) {
+            OpenCSVBuilder csvBuilder = CSVBuilderFactory.createCsvBuilder();
+            List<CSVUSCensus> csvusCensusList = csvBuilder.getList(reader, CSVUSCensus.class);
+            int numberOfRecords = csvusCensusList.size();
+            return numberOfRecords;
+        } catch (NoSuchFileException e) {
+            throw new CSVBuilderException(e.getMessage(),
+                    CSVBuilderException.ExceptionType.FILE_NOT_FOUND);
+        } catch (RuntimeException e) {
+            throw new CSVBuilderException(e.getMessage(),
+                    CSVBuilderException.ExceptionType.DELIMITER_OR_HEADER_INCORRECT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
+
+    }
 
     public String getSortedCensusData() {
         Comparator<CensusDAO> csvComparator = Comparator.comparing(census -> census.state);
@@ -91,7 +112,7 @@ public class StateCensusAnalyzer {
         return SortedCodeJson;
     }
 
-    public String getSortedCensusDataPopulationWise(){
+    public String getSortedCensusDataPopulationWise() {
         Comparator<CensusDAO> populationComparator = Comparator.comparing(census -> census.population);
         this.sort(populationComparator);
         Collections.reverse(stateCensusList);
@@ -99,7 +120,7 @@ public class StateCensusAnalyzer {
         return sortedPopulationJson;
     }
 
-    public String getSortedCensusDataDensityWise(){
+    public String getSortedCensusDataDensityWise() {
         Comparator<CensusDAO> densityComparator = Comparator.comparing(census -> census.density);
         this.sort(densityComparator);
         Collections.reverse(stateCensusList);
