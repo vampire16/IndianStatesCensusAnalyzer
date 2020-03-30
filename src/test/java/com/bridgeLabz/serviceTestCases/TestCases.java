@@ -150,4 +150,11 @@ public class TestCases {
         StateCensusPojo[] stateCensusPojo = new Gson().fromJson(sortedData, StateCensusPojo[].class);
         Assert.assertEquals(342239, stateCensusPojo[0].area);
     }
+
+    @Test
+    public void givenUSCensusData_WhenRecordsEqual_ShouldReturnTrue() throws CSVBuilderException {
+        final String CSV_FILE_PATH = "src/test/resources/USCensusData.csv";
+        int numOfRecords = stateCensusAnalyzer.loadUSCensusRecords(CSV_FILE_PATH);
+        Assert.assertEquals(51, numOfRecords);
+    }
 }
