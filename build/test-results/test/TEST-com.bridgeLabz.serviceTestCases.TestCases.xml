@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgeLabz.serviceTestCases.TestCases" tests="16" skipped="0" failures="0" errors="0" timestamp="2020-03-30T02:51:07" hostname="DESKTOP-7UGSU5P" time="0.706">
+<testsuite name="com.bridgeLabz.serviceTestCases.TestCases" tests="16" skipped="0" failures="0" errors="0" timestamp="2020-04-06T13:35:33" hostname="DESKTOP-7UGSU5P" time="0.776">
   <properties/>
-  <testcase name="givenFileType_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.01"/>
-  <testcase name="givenFileNameOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.003"/>
-  <testcase name="givenStateCensusData_WhenAreaSorted_ShouldReturnSortedResult" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.405"/>
-  <testcase name="givenNumberOfRecords_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.015"/>
-  <testcase name="givenFileTypeOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.002"/>
-  <testcase name="givenFile_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.026"/>
-  <testcase name="givenStateCensusData_WhenPopulationSorted_ShouldReturnSortedResult" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.016"/>
+  <testcase name="givenFileType_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.007"/>
+  <testcase name="givenFileNameOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.001"/>
+  <testcase name="givenStateCensusData_WhenAreaSorted_ShouldReturnSortedResult" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.275"/>
+  <testcase name="givenNumberOfRecords_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.022"/>
+  <testcase name="givenFileTypeOfStateCode_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.001"/>
+  <testcase name="givenFile_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.034"/>
+  <testcase name="givenStateCensusData_WhenPopulationSorted_ShouldReturnSortedResult" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.02"/>
   <testcase name="givenFileName_WhenWrong_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.002"/>
-  <testcase name="givenStateCodeData_WhenSorted_ShouldReturnSortedList" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.036"/>
-  <testcase name="givenFile_WhenHeaderIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.051"/>
-  <testcase name="givenCensusData_WhenSorted_ShouldReturnSortedList" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.031"/>
-  <testcase name="givenNumberOfRecordsOfStateCode_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.016"/>
-  <testcase name="givenFileOfStateCode_WhenHeadersIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.01"/>
-  <testcase name="givenStateCensusData_WhenDensitySorted_ShouldReturnSortedResult" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.017"/>
-  <testcase name="givenUSCensusData_WhenRecordsEqual_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.028"/>
-  <testcase name="givenFileOfStateCode_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.023"/>
+  <testcase name="givenFile_WhenHeaderIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.018"/>
+  <testcase name="givenCensusData_WhenSorted_ShouldReturnSortedList" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.022"/>
+  <testcase name="givenNumberOfRecordsOfStateCode_WhenMatched_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.038"/>
+  <testcase name="givenFileOfStateCode_WhenHeadersIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.006"/>
+  <testcase name="givenStateCensusData_WhenDensitySorted_ShouldReturnSortedResult" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.024"/>
+  <testcase name="givenUSCensusData_WhenRecordsEqual_ShouldReturnTrue" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.145"/>
+  <testcase name="givenFileOfStateCode_WhenDelimiterIncorrect_ShouldReturnCustomiseException" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.04"/>
+  <testcase name="givenTheUSCensusData_WhenSortedOnPopulation_ShouldReturnSortedResult" classname="com.bridgeLabz.serviceTestCases.TestCases" time="0.089"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
