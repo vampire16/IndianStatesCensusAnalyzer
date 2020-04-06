@@ -27,10 +27,11 @@ public class OpenCSVBuilder implements ICSVBuilder {
     //    LIST OF CSV FILE
     @Override
     public <E> List getList(Reader reader, Class csvClass) {
-        CsvToBeanBuilder<E> csvToBeanBuilder = new CsvToBeanBuilder(reader)
+        CsvToBean csvToBeanBuilder = new CsvToBeanBuilder(reader)
                 .withType(csvClass)
-                .withIgnoreLeadingWhiteSpace(true);
-        return csvToBeanBuilder.build().parse();
+                .withIgnoreLeadingWhiteSpace(true)
+                .build();
+        return csvToBeanBuilder.parse();
     }
 }
 
