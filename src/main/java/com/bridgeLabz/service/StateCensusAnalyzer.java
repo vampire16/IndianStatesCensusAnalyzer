@@ -25,12 +25,14 @@ public class StateCensusAnalyzer {
     public enum Country {INDIA, US}
     public enum SortingMode {STATE, POPULATION, DENSITY, AREA}
 
+//    METHOD TO LOAD DATA
     public int loadCensusRecords(Country country, String... csvPath) throws CSVBuilderException {
         stateCensusMap = AdapterFactory.getCensusData(country, csvPath);
         stateCensusList = stateCensusMap.values().stream().collect(Collectors.toList());
         return stateCensusMap.size();
     }
 
+//    METHOD TO SORT DATA
     public String getSortedCensusData(SortingMode mode) {
         ArrayList arrayList = stateCensusMap.values().stream()
                 .sorted(CensusDAO.getSortComparator(mode))
@@ -39,33 +41,12 @@ public class StateCensusAnalyzer {
         return new Gson().toJson(arrayList);
     }
 
-//    public String getPopulationWiseUSSortedCensusData(){
-//        Comparator<CensusDAO> censusComparator = Comparator.comparing(censusDAO -> censusDAO.population);
-//        this.sort(censusComparator);
-//        Collections.reverse(stateCensusList);
-//        String sortedStateCensusJson = new Gson().toJson(stateCensusList);
-//        return sortedStateCensusJson;
-//    }
-
-    public String getDualSortByPopulationDensity() throws CSVBuilderException {
+    public String getDualSortByPopulationDensity() {
         ArrayList arrayList = stateCensusMap.values().stream()
                 .sorted(Comparator.comparingDouble(CensusDAO::getPopulation).thenComparingDouble(CensusDAO::getDensity).reversed())
                 .map(censusDAO -> censusDAO.getCensusDTO(country))
                 .collect(Collectors.toCollection(ArrayList::new));
         return new Gson().toJson(arrayList);
-    }
-
-    private <E> void sort(Comparator<CensusDAO> csvComparator) {
-        for (int i = 0; i < stateCensusList.size() - 1; i++) {
-            for (int j = 0; j < stateCensusList.size() - i - 1; j++) {
-                CensusDAO census1 = stateCensusList.get(j);
-                CensusDAO census2 = stateCensusList.get(j + 1);
-                if (csvComparator.compare(census1, census2) > 0) {
-                    stateCensusList.set(j, census2);
-                    stateCensusList.set(j + 1, census1);
-                }
-            }
-        }
     }
 }
 
