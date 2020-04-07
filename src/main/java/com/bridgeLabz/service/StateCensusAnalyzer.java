@@ -39,12 +39,20 @@ public class StateCensusAnalyzer {
         return new Gson().toJson(arrayList);
     }
 
-    public String getPopulationWiseUSSortedCensusData(){
-        Comparator<CensusDAO> censusComparator = Comparator.comparing(censusDAO -> censusDAO.population);
-        this.sort(censusComparator);
-        Collections.reverse(stateCensusList);
-        String sortedStateCensusJson = new Gson().toJson(stateCensusList);
-        return sortedStateCensusJson;
+//    public String getPopulationWiseUSSortedCensusData(){
+//        Comparator<CensusDAO> censusComparator = Comparator.comparing(censusDAO -> censusDAO.population);
+//        this.sort(censusComparator);
+//        Collections.reverse(stateCensusList);
+//        String sortedStateCensusJson = new Gson().toJson(stateCensusList);
+//        return sortedStateCensusJson;
+//    }
+
+    public String getDualSortByPopulationDensity() throws CSVBuilderException {
+        ArrayList arrayList = stateCensusMap.values().stream()
+                .sorted(Comparator.comparingDouble(CensusDAO::getPopulation).thenComparingDouble(CensusDAO::getDensity).reversed())
+                .map(censusDAO -> censusDAO.getCensusDTO(country))
+                .collect(Collectors.toCollection(ArrayList::new));
+        return new Gson().toJson(arrayList);
     }
 
     private <E> void sort(Comparator<CensusDAO> csvComparator) {
