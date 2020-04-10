@@ -21,7 +21,7 @@ public abstract class CensusAdapter {
     public <E> Map<String, CensusDAO> loadCensusData(Class<E> csvClass, String csvPath) throws CSVBuilderException {
         Map<String, CensusDAO> censusDAOMap = new HashMap<>();
         try (
-                Reader reader = Files.newBufferedReader(Paths.get(csvPath))
+                    Reader reader = Files.newBufferedReader(Paths.get(csvPath))
         ) {
             OpenCSVBuilder csvBuilder = CSVBuilderFactory.createCsvBuilder();
             Iterator<E> censusIterator = csvBuilder.getIterator(reader, csvClass);
