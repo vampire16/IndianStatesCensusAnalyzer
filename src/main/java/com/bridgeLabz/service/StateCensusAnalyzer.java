@@ -22,17 +22,13 @@ public class StateCensusAnalyzer {
         this.country = country;
     }
 
-    public enum Country {INDIA, US}
-    public enum SortingMode {STATE, POPULATION, DENSITY, AREA}
-
-//    METHOD TO LOAD DATA
-    public int loadCensusRecords(Country country, String... csvPath) throws CSVBuilderException {
+    //    METHOD TO LOAD DATA
+    public int loadCensusRecords(String... csvPath) throws CSVBuilderException {
         stateCensusMap = AdapterFactory.getCensusData(country, csvPath);
-        stateCensusList = stateCensusMap.values().stream().collect(Collectors.toList());
         return stateCensusMap.size();
     }
 
-//    METHOD TO SORT DATA
+    //    METHOD TO SORT DATA
     public String getSortedCensusData(SortingMode mode) {
         ArrayList arrayList = stateCensusMap.values().stream()
                 .sorted(CensusDAO.getSortComparator(mode))
@@ -48,5 +44,9 @@ public class StateCensusAnalyzer {
                 .collect(Collectors.toCollection(ArrayList::new));
         return new Gson().toJson(arrayList);
     }
+
+    public enum Country {INDIA, US}
+
+    public enum SortingMode {STATE, POPULATION, DENSITY, AREA}
 }
 
